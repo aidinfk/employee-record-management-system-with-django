@@ -1,0 +1,49 @@
+{% extends 'admin_base.html' %}
+
+{% block main %}
+
+
+
+<div class="card shadow m-2">
+    <div class="card-body">
+        <h5 class="p-2 text-danger" style="border-bottom: 2px solid orange;">Employee details</h5>
+
+        <div class="container-fluid">
+           <table class="table table-bordered table-hover" id="example">
+               <thead class="text-light bg-danger">
+                   <tr>
+                       <th>S No.</th>
+                       <th>Employee code</th>
+                       <th>First Name</th>
+                       <th>Last Name</th>
+                       <th>Email</th>
+                       <th>Contact No.</th>
+                       <th>Joining Date</th>
+                       <th>Action </th>
+                   </tr>
+               </thead>
+               <tbody>
+                   {% for i in employee %}
+                   <tr>
+                       <td>{{ forloop.counter }}</td>
+                       <td>{{i.empcode  }}</td>
+                       <td>{{ i.user.first_name }}</td>
+                       <td>{{ i.user.last_name }}</td>
+                       <td>{{ i.user.username }}</td>
+                       <td>{{ i.contact }}</td>
+                       <td>{{ i.joiningdate }}</td>
+                       <td class="text-center">
+                           <a href="{% url 'edit_profile' i.id %}" class="text-primary"><i class="fa fa-edit"></i></a>
+                           <a href="{% url 'edit_education' i.user.id %}" class="text-success"><i class="fa fa-address-card"></i></a>
+                           <a href="{% url 'edit_experiencee' i.user.id %}" class="text-warning"><i class="fa fa-list"></i></a>
+                           <a href="{% url 'delete_employee' i.user.id %}" class="text-danger" onclick="return confirm('Are you sure to delete this user?')"><i class="fa fa-trash"></i></a>
+                        </td>
+                   </tr>
+                   {% endfor %}
+               </tbody>
+           </table>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

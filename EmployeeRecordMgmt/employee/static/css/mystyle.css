@@ -1,0 +1,21 @@
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: lightgoldenrodyellow !important;
+    background-color: rgb(216, 51, 51);
+    border-radius: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: medium;
+}
+
+.active {
+    background-color: rgb(63, 184, 8);
+    border-radius: 30px;
+}
